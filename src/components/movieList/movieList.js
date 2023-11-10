@@ -1,27 +1,53 @@
-import React, { useEffect } from 'react';
-import './movieList.css';
+import React, { useEffect, useState } from "react";
+import "./movieList.css";
 
-function MovieList() {
-    useEffect(() => {
-        fetch("https://api.themoviedb.org/3/discover/movie?api_key=174861355dec947c2adef36406c7b3c7")
-            .then(response => response.json())
-            .then(data => console.log(data));
+function MovieList({ searchTerm }) {
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+
+  const searchMovies = (term) => {
+    const url =
+      "https://api.themoviedb.org/3/search/movie?query=" +
+      term +
+      "&include_adult=false&language=en-US&";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: "Bearer " + process.env.REACT_APP_MOVIE_DB_ACCESS_TOKEN,
+      },
+    };
+    console.log("searching movies");
+    fetch(url, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => setMovies(data.results))
+      .catch((error) => {
+        console.error("Error:", error);
+        setError(error.toString());
+      });
+  };
+
+  useEffect(() => {
+    if (searchTerm) {
+      searchMovies(searchTerm);
     }
-    )
-    return (
-        <div>
-            <button className="movieInfo">
-                <h3 className="movieTitle">Title</h3>
+  }, [searchTerm]);
 
-            </button>
-            <button className="movieInfo">
-                <h3 className="movieTitle">Title</h3>
-            </button>
-            <button className="movieInfo">
-                <h3 className="movieTitle">Title</h3>
-            </button>
-        </div>
-    )
+  return (
+    <div>
+      {error ? <div>Error: {error}</div> : null}
+      {movies.map((movie, index) => (
+        <button key={index} className="movieInfo">
+          <h3 className="movieTitle">{movie.title}</h3>
+        </button>
+      ))}
+    </div>
+  );
 }
 
 export default MovieList;
