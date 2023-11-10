@@ -1,0 +1,30 @@
+.movieList {
+    display: flex;
+    border: 1px solid black;
+    padding-top: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: #7c4242;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vh;
+    height: 10vh;
+    background-color: #fff;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 0.5rem;
+  }
+  
+
+.movieTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
