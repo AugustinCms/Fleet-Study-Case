@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import MovieDetail from "../movieDetail/movieDetail";
 import "./movieList.css";
 
-function MovieList({ searchTerm }) {
+function MovieList({ setSelectedMovie, searchTerm }) {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
 
@@ -39,10 +40,10 @@ function MovieList({ searchTerm }) {
   }, [searchTerm]);
 
   return (
-    <div>
+    <div className="movieList">
       {error ? <div>Error: {error}</div> : null}
       {movies.map((movie, index) => (
-        <button key={index} className="movieInfo">
+        <button key={index} className="movieInfo" onClick={() => setSelectedMovie(movie)}>
           <h3 className="movieTitle">{movie.title}</h3>
         </button>
       ))}

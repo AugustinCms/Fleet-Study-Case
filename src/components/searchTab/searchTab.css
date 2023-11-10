@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%; /* Adjusted to take full width */
+    width: 30%;
+    min-width: 500px;
     height: 100vh;
     background-color: rgb(0, 140, 255);
     overflow-y: scroll;
@@ -28,16 +29,26 @@
     border-radius: 20px;
     width: 90%;
     background-color: rgb(217, 217, 219);
-
-    /* Adjusted padding to be more responsive */
     padding-left: 5%;
     padding-right: 5%;
 }
 
-/* Media query for smaller screens */
 @media only screen and (max-width: 1000px) {
+    .searchTab {
+        min-width: 300px;
+    }
     .searchBar {
-        width: 80%; /* Adjusted for smaller screens */
-        font-size: 15px; /* Reduced font size for smaller screens */
+        width: 80%;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .searchTab {
+        min-width: 130px;
+    }
+    .searchBar {
+        width: 80%;
+        font-size: 10px;
     }
 }

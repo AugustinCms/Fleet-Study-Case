@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './searchTab.css';
 import MovieList from '../movieList/movieList';
 
-function SearchTab() {
+function SearchTab({ setSelectedMovie }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleEnterPress = (event) => {
@@ -23,7 +23,7 @@ function SearchTab() {
         />
       </div>
       <br/>
-        <MovieList searchTerm={searchTerm} />
+      <MovieList setSelectedMovie={setSelectedMovie} searchTerm={searchTerm} />
     </div>
   )
 }

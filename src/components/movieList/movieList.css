@@ -32,7 +32,10 @@
     align-items: center;
     width: 85%; /* Adjusted to take full width */
     height: 70vh;
-    background-color: #425b7c;
+    background-color: #3a7ace;
+    border-radius: 5px;
+    border: 0px;
+    box-shadow: 3px 2px 8px rgb(80, 80, 80);
     overflow-y: scroll;
 }
 
@@ -63,5 +66,11 @@
         font-size: 0.7em; /* Reduced font size for smaller screens */
     }
 }
+
+.movieInfo:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
 
 
