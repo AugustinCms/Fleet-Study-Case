@@ -34,7 +34,8 @@ function MovieDetail({ movie }) {
       <div className="movieHeader">
         <div className="movieMainInfo">
           <h2 className="title">{movie.title}</h2>
-          <h3 className="movieGenre">{genres.join(', ')}</h3>
+          <h3 className="movieGenre">genre(s): {genres.join(', ')}</h3>
+          <h3 className="movieReleaseDate">release date: {new Date(movie.release_date).toLocaleDateString()}</h3>
         </div>
         <img
           className="movieImage"
