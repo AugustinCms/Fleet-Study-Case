@@ -5,48 +5,63 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding: 0.5rem;
+    padding: 1rem; /* Increased padding for better spacing on smaller screens */
     color: #fff;
     overflow: hidden;
     position: relative;
+    overflow-y: scroll;
 }
 
-
 .title {
-    /* font-size: 2rem;
-    font-weight: 700; */
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center; /* Center the text */
 }
 
 .movieHeader {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column; /* Changed to column for better responsiveness */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
     width: 100%;
-    height: 80%;
+    height: auto; /* Auto height for dynamic content */
     padding: 1rem;
-    padding-left: 20rem;
-    color: #fff;
-    overflow: hidden;
+    text-align: center; /* Center text */
 }
 
 .movieImage {
-    padding: 2rem;
-    padding-right: 20rem;
+    width: 100%; /* Take up the full width of the container */
+    max-width: 400px; /* Set a max-width to prevent image distortion on larger screens */
+    margin-top: 1rem; /* Add some space between image and text */
 }
 
 .movieMainInfo {
-    padding: 2rem
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; /* Adjusted padding for better spacing on smaller screens */
+    align-self: flex-start; /* Keeps the position consistent within the flex container */
+    min-height: 200px; /* Set a minimum height to prevent drastic changes */
 }
 
-@media only screen and (max-width: 1100px) {
+
+@media only screen and (min-width: 601px) {
     .movieImage {
-        width: 60%;
+        width: 60%; /* Adjusted width for medium-sized screens */
     }
 }
 
-
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 1101px) {
     .movieImage {
-        width: 30%;
+        width: 40%; /* Adjusted width for larger screens */
+    }
+
+    .movieHeader {
+        flex-direction: row; /* Switch back to row layout for larger screens */
+        align-items: flex-start; /* Align items to the start for larger screens */
+        justify-content: space-between;
+    }
+
+    .movieMainInfo {
+        padding: 2rem; /* Increase padding for larger screens */
     }
 }

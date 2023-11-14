@@ -5,10 +5,23 @@ import MovieList from '../movieList/movieList';
 
 function SearchTab({ setSelectedMovie }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const handleEnterPress = (event) => {
     event.preventDefault();
     setSearchTerm(event.target.value);
+  };
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   return (
@@ -23,7 +36,12 @@ function SearchTab({ setSelectedMovie }) {
         />
       </div>
       <br/>
-      <MovieList setSelectedMovie={setSelectedMovie} searchTerm={searchTerm} />
+      <MovieList setSelectedMovie={setSelectedMovie} searchTerm={searchTerm} setCurrentPage={setCurrentPage} setTotalPages={setTotalPages} currentPage={currentPage}/>
+      <div className="footer">
+      <button onClick={handlePrevPage}>Previous Page</button>
+        <p>{currentPage}/{totalPages}</p>
+        <button onClick={handleNextPage}>Next Page</button>
+        </div>
     </div>
   )
 }

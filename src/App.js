@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', height: '100%' }}>
           <SearchTab setSelectedMovie={setSelectedMovie}/>
           {selectedMovie && <MovieDetail movie={selectedMovie} />}
         </div>

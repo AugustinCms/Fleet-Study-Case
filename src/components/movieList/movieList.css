@@ -1,28 +1,23 @@
-/* Track */
 ::-webkit-scrollbar {
-    width: 7px; /* Set the width of the scrollbar */
+    width: 7px;
     height: 7px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    background-color: #afafaf; /* Set the color of the scrollbar handle */
-    border-radius: 6px; /* Set the radius of the scrollbar handle */
+    background-color: #afafaf;
+    border-radius: 6px; 
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #6f706f; /* Set the color of the scrollbar handle on hover */
+    background-color: #6f706f;
 }
 
-/* Track on hover */
 ::-webkit-scrollbar-track:hover {
-    background-color: #c9c8c8; /* Set the color of the scrollbar track on hover */
+    background-color: #c9c8c8; 
 }
 
-/* Handle when dragging */
 ::-webkit-scrollbar-thumb:active {
-    background-color: #555; /* Set the color of the scrollbar handle when dragging */
+    background-color: #555; 
 }
 
 .movieList {
@@ -30,7 +25,7 @@
     padding-top: 5px;
     justify-content: center;
     align-items: center;
-    width: 85%; /* Adjusted to take full width */
+    width: 85%;
     height: 70vh;
     background-color: #3a7ace;
     border-radius: 5px;
@@ -57,13 +52,12 @@
     font-size: 1em;
 }
 
-/* Media query for smaller screens */
 @media only screen and (max-width: 768px) {
     .movieInfo {
-        width: 85%; /* Adjusted for smaller screens */
+        width: 85%;
     }
     .movieTitle {
-        font-size: 0.7em; /* Reduced font size for smaller screens */
+        font-size: 0.7em; 
     }
 }
 
